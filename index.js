@@ -6,25 +6,31 @@ window.addEventListener(
     if (origin === "http://localhost:3001") {
       console.log("Received message from allowed origin:", { origin, data });
 
-      const myIframe = document.getElementById("myIframe");
-      if (!myIframe) {
-        console.error("Iframe with id 'myIframe' not found.");
+      const platterPopupIframe = document.getElementById(
+        "platter-popup-non-kms"
+      );
+      if (!platterPopupIframe) {
+        console.error("Iframe with id 'platterPopupIframe' not found.");
         return;
       }
+
+      platterPopupIframe.style.position = "absolute";
+      platterPopupIframe.style.bottom = "0px";
+      platterPopupIframe.style.right = "0px";
 
       const { height, width } = data;
 
       if (height === "80px") {
-        myIframe.style.transition = "none";
+        platterPopupIframe.style.transition = "none";
         console.log("Transition set to none for height 80px.");
       } else {
-        myIframe.style.transition = "all 300ms";
+        platterPopupIframe.style.transition = "all 300ms";
         console.log("Transition set to 300ms.");
       }
 
       setTimeout(() => {
-        myIframe.style.height = height;
-        myIframe.style.width = width;
+        platterPopupIframe.style.height = height;
+        platterPopupIframe.style.width = width;
         console.log(`Iframe resized to height: ${height}, width: ${width}`);
       }, 200);
     } else {
