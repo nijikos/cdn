@@ -3,7 +3,7 @@ window.addEventListener(
   (event) => {
     const { origin, data } = event;
 
-    if (origin === "http://54.254.188.38:3333") {
+    if ( origin === "http://localhost:3001") {
       console.log("Received message from allowed origin:", { origin, data });
 
       const platterPopupIframe = document.getElementById(
