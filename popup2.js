@@ -2,7 +2,7 @@ window.addEventListener(
   "message",
   (event) => {
     const { origin, data } = event;
-
+console.log("new loggg")
     if ( origin === "http://localhost:3001") {
       console.log("Received message from allowed origin:", { origin, data });
 
